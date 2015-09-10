@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html ng-app="categorizer" >
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="lib/angular.js"></script>
+  <script src="lib/jquery-1.11.2.js"></script>
+  <script src="categorizeFunctions.js"></script> 
+  <link rel="stylesheet" href="lib/jquery-ui-1.11.4/jquery-ui.min.css">
+  <script src="lib/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+   
+<div class="center">
+
+<div class="filter">Filter: <input size="10" ng-model="searchText">
+</div>
+
+<div>
+ <table class="table table-bordered" cellspacing="1">
+ 	<tr ng-repeat="row in items.modules">
+        <td ng-repeat="module in row | filter:searchText">
+          <div class="header"><a href="{{ module.hrefTitle }}" target="_blank">{{ module.category }}</div>
+         
+          <div class="title truncated-anchors"><a title="{{module.title}}" href='javascript:openPage("{{ module.fullText }}","{{ module.category }}");'>{{ module.title }}</a></div>
+         
+          <div class="date">Crawl Date : {{ module.formattedDateTime }}</div>
+    </td>
+   </tr>
+  </table>
+ </div>
+ 
+</div>
+
+
+<script>
+$(function() {
+
+})
+</script>
+
+<!-- <a href='#' id="truncatedText"></a> -->
+<div id='textDialog'></div>
+
+</body>
+</html>

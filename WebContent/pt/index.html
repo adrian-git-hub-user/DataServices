@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html ng-app="app" >
+
+<head>
+
+  <script src="angular.js"></script>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="data.js"></script>
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+</head>
+
+
+  <link rel="stylesheet" href="style.css">
+  
+<body ng-controller="MainCtrl">
+   
+<div class="center">
+
+
+  <div>
+    <table class="table table-bordered" cellspacing="1">
+      <tr ng-repeat="det in dets">
+        <td class="col-md-3" ng-repeat="d in det">
+          <div class="header"><a href="{{ d.title }}" target="_blank">{{d.title}}</div>
+         
+          <div class="title truncated-anchors"><a title="d.wikiUrl" href='test");'>Description</a>
+          </div>
+
+          <div class="date">Compliance : {{d.compliance}}</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+<script>
+$(function() {
+
+})
+</script>
+
+<!-- <a href='#' id="truncatedText"></a> -->
+<div id='textDialog'></div>
+
+</body>
+</html>
